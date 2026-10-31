@@ -1,0 +1,3 @@
+[submodule "vendor/TiddlyWiki5"]
+	path = vendor/TiddlyWiki5
+	url = https://github.com/TiddlyWiki/TiddlyWiki5.git

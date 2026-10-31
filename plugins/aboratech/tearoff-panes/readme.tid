@@ -1,0 +1,12 @@
+title: $:/plugins/aboratech/tearoff-panes/readme
+
+Open any tiddler in a draggable, resizable pane that floats over the main
+story river, without leaving the current window. Panes render through the
+normal `ViewTemplate`/`EditTemplate` cascade, so any installed content-type
+plugin (parsers, editors) works inside a pane exactly as it does in the main
+window.
+
+Panes are pure UI state (`$:/state/tearoff/<tiddler title>`) with no
+boot-time restore -- closing or reopening the document, or clicking Home,
+clears them the same way any tiddler not listed in `$:/DefaultTiddlers`
+would be cleared.

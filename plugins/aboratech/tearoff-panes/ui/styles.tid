@@ -1,0 +1,48 @@
+title: $:/plugins/aboratech/tearoff-panes/ui/styles
+tags: $:/tags/Stylesheet
+type: text/css
+
+.tc-tearoff-pane {
+	position: absolute;
+	min-width: 220px;
+	min-height: 140px;
+	background: <<colour page-background>>;
+	border: 1px solid <<colour tiddler-border>>;
+	box-shadow: 1px 3px 8px rgba(0,0,0,0.25);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	resize: both;
+}
+
+.tc-tearoff-pane-titlebar {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2px 6px;
+	background: <<colour tab-background>>;
+	border-bottom: 1px solid <<colour tiddler-border>>;
+	cursor: move;
+	font-size: 0.8em;
+	user-select: none;
+}
+
+.tc-tearoff-pane-titlebar-caption {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	flex: 1 1 auto;
+}
+
+.tc-tearoff-pane-close {
+	flex: 0 0 auto;
+	cursor: pointer;
+	padding: 0 4px;
+}
+
+.tc-tearoff-pane-body {
+	flex: 1 1 auto;
+	overflow: auto;
+	padding: 4px 8px;
+}

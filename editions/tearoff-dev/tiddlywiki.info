@@ -1,0 +1,18 @@
+{
+    "description": "Dev edition for exercising the tearoff-panes plugin",
+    "plugins": [
+        "aboratech/tearoff-panes"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "build": {
+        "index": [
+            "--render", "$:/core/save/all", "index.html", "text/plain"
+        ],
+        "library": [
+            "--render", "$:/build/tearoff-panes/export-library.html", "tearoff-panes.html", "text/plain"
+        ]
+    }
+}

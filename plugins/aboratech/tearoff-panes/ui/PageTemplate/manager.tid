@@ -1,0 +1,17 @@
+title: $:/plugins/aboratech/tearoff-panes/ui/PageTemplate/manager
+tags: $:/tags/PageTemplate
+
+\whitespace trim
+<$list filter="[prefix[$:/state/tearoff/]]" variable="paneState">
+
+<$tearoffframe state=<<paneState>> caption={{{ [list<paneState>first[]] }}}>
+
+<$navigator story=<<paneState>> history={{{ [<paneState>addsuffix[/history]] }}}>
+
+<$list filter="[list<paneState>]" template="$:/core/ui/StoryTiddlerTemplate" storyview={{$:/view}}/>
+
+</$navigator>
+
+</$tearoffframe>
+
+</$list>
