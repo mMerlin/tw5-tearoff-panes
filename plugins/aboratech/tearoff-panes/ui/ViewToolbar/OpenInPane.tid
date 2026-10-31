@@ -1,16 +1,16 @@
 title: $:/plugins/aboratech/tearoff-panes/ui/ViewToolbar/OpenInPane
 tags: $:/tags/ViewToolbar
-caption: {{$:/core/images/open-window}} Open in pane
-description: Open this tiddler in a draggable, resizable pane
+caption: {{$:/core/images/open-window}} popout
+description: Pop out this tiddler
 
 \whitespace trim
-<$button actions="""<$action-openinpane/>""" tooltip="Open this tiddler in a draggable, resizable pane" aria-label="Open in pane" class=<<tv-config-toolbar-class>>>
+<$button actions="""<$action-openinpane/>""" tooltip="Pop out this tiddler" aria-label="Pop out this tiddler" class=<<tv-config-toolbar-class>>>
 	<%if [<tv-config-toolbar-icons>match[yes]] %>
 		{{$:/core/images/open-window}}
 	<%endif%>
 	<%if [<tv-config-toolbar-text>match[yes]] %>
 		<span class="tc-btn-text">
-			<$text text="Open in pane"/>
+			<$text text="popout"/>
 		</span>
 	<%endif%>
 </$button>

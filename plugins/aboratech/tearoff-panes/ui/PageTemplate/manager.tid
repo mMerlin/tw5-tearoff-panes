@@ -2,16 +2,20 @@ title: $:/plugins/aboratech/tearoff-panes/ui/PageTemplate/manager
 tags: $:/tags/PageTemplate
 
 \whitespace trim
-<$list filter="[prefix[$:/state/tearoff/]]" variable="paneState">
+<$list filter="[prefix[$:/state/tearoff/]has:field[list]]" variable="paneState">
+
+<$vars historyTitle={{{ [<paneState>addsuffix[/history]] }}}>
 
 <$tearoffframe state=<<paneState>> caption={{{ [list<paneState>first[]] }}}>
 
-<$navigator story=<<paneState>> history={{{ [<paneState>addsuffix[/history]] }}}>
+<$navigator story=<<paneState>> history=<<historyTitle>> openLinkFromInsideRiver={{$:/config/Navigation/openLinkFromInsideRiver}} openLinkFromOutsideRiver={{$:/config/Navigation/openLinkFromOutsideRiver}}>
 
-<$list filter="[list<paneState>]" template="$:/core/ui/StoryTiddlerTemplate" storyview={{$:/view}}/>
+<$list filter="[list<paneState>]" template="$:/core/ui/StoryTiddlerTemplate" storyview={{$:/view}} history=<<historyTitle>>/>
 
 </$navigator>
 
 </$tearoffframe>
+
+</$vars>
 
 </$list>

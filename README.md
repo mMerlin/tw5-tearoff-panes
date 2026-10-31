@@ -6,8 +6,8 @@ current browser window or document.
 
 ## What it does
 
-- Click the "Open in pane" button in a tiddler's toolbar to pop it into its
-  own floating pane. Keep working in the main window (or other panes) while
+- Click the "popout" button in a tiddler's toolbar to pop it into its own
+  floating pane. Keep working in the main window (or other panes) while
   that pane stays open for reference.
 - Panes are fully independent: drag them anywhere, resize them, overlap
   them, and arrange as many as you need to match your current task.
@@ -36,22 +36,39 @@ tagged release yet.
 ## Adding this to an existing TiddlyWiki document
 
 You don't need this repo, Node.js, or git for this -- just one file:
-**[`dist/tearoff-panes.html`](dist/tearoff-panes.html)**. It's a small
-(~13&nbsp;KB) file containing *only* this plugin -- no TiddlyWiki core, no
-demo content -- kept up to date in this repo so there's nothing to build.
+**[`dist/tearoff-panes-0.0.4.html`](dist/tearoff-panes-0.0.4.html)**. It's a
+small (~14&nbsp;KB) file containing *only* this plugin -- no TiddlyWiki
+core, no demo content -- kept up to date in this repo so there's nothing to
+build.
 
-1. Download `dist/tearoff-panes.html` (e.g. via the link above, or
-   `raw.githubusercontent.com/.../dist/tearoff-panes.html` once this repo
-   has a home).
+The version number is in the filename because TiddlyWiki's import silently
+overwrites a same-titled tiddler, with no confirmation prompt -- so there's
+no "are you sure, here's what you're replacing" moment during the import
+itself. Checking the filename *before* you import, and checking the
+installed version afterward in the sidebar's **Control Panel → Plugins**
+tab (TiddlyWiki does show it there), are the two points where you can
+actually confirm which code ended up in your wiki. `dist/` may eventually
+hold more than one file -- e.g. an MDI variant alongside a
+separate-OS-windows variant -- so always grab the filename the current
+README section names, not an assumed "latest".
+
+1. Download `dist/tearoff-panes-0.0.4.html` (e.g. via the link above, or
+   `raw.githubusercontent.com/.../dist/tearoff-panes-0.0.4.html` once this
+   repo has a home).
 2. Open your existing TiddlyWiki document in a browser.
-3. Open the sidebar's **Tools** tab and click **import** -- or simply drag
-   the downloaded file into the browser window.
-4. TiddlyWiki will list the one tiddler it found:
-   `$:/plugins/aboratech/tearoff-panes`. Check it and confirm the import.
+3. Drag the downloaded file into the browser window. (The sidebar's
+   **Tools → import** button reaches the same place, but makes you browse
+   to and select the file first -- dragging gets you there in one step.)
+4. TiddlyWiki shows the one tiddler it found, `$:/plugins/aboratech/tearoff-panes`,
+   already selected -- there's nothing else in this file to deselect. Confirm
+   the import. If a copy is already installed, this overwrites it
+   immediately and silently, so double-check the filename *before* this
+   step, not after.
 5. Save your wiki, then reload the page -- TiddlyWiki needs a reload to
-   finish activating a newly imported plugin.
-6. Open any tiddler and look for the new "Open in pane" button in its
-   toolbar.
+   finish activating a newly imported (or upgraded) plugin.
+6. Open any tiddler and look for the new "popout" button in its toolbar.
+   You can confirm which version actually loaded afterward via the
+   sidebar's **Control Panel → Plugins** tab.
 
 You only need the full repo (below) if you want to **fork or modify** the
 plugin's behavior -- not to use it as-is.
@@ -88,10 +105,11 @@ TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins" \
 # -> editions/tearoff-dev/output/index.html
 ```
 
-**After changing anything under `plugins/aboratech/tearoff-panes/`**,
-regenerate the distributable file and commit the result:
+**After changing anything under `plugins/aboratech/tearoff-panes/`**, bump
+`version` in `plugins/aboratech/tearoff-panes/plugin.info`, regenerate the
+distributable file, and commit both:
 
 ```sh
 ./scripts/build-library.sh
-# -> rewrites dist/tearoff-panes.html
+# -> writes dist/tearoff-panes-<version>.html, read from plugin.info
 ```

@@ -3,7 +3,7 @@ tags: $:/tags/Stylesheet
 type: text/css
 
 .tc-tearoff-pane {
-	position: absolute;
+	position: fixed;
 	min-width: 220px;
 	min-height: 140px;
 	background: <<colour page-background>>;

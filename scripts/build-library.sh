@@ -1,13 +1,19 @@
 #!/bin/bash
-# Rebuilds dist/tearoff-panes.html -- the minimal, plugin-only file users
-# import into an existing TiddlyWiki document. Run this after any change
-# under plugins/aboratech/tearoff-panes/, and commit the result.
+# Rebuilds dist/tearoff-panes-<version>.html -- the minimal, plugin-only
+# file users import into an existing TiddlyWiki document. The version in
+# the filename comes from plugins/aboratech/tearoff-panes/plugin.info, so
+# bump that version before running this whenever the plugin changes, and
+# commit the result. Older dist/tearoff-panes-*.html files are left in
+# place -- this script does not delete past versions.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+VERSION=$(node -e "console.log(JSON.parse(require('fs').readFileSync('plugins/aboratech/tearoff-panes/plugin.info','utf8')).version)")
 
 TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins" \
 	node vendor/TiddlyWiki5/tiddlywiki.js editions/tearoff-dev --build library
 
 mkdir -p dist
-cp editions/tearoff-dev/output/tearoff-panes.html dist/tearoff-panes.html
-echo "Wrote dist/tearoff-panes.html ($(wc -c < dist/tearoff-panes.html) bytes)"
+OUTFILE="dist/tearoff-panes-${VERSION}.html"
+cp editions/tearoff-dev/output/tearoff-panes.html "$OUTFILE"
+echo "Wrote $OUTFILE ($(wc -c < "$OUTFILE") bytes)"

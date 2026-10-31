@@ -15,6 +15,16 @@ var Widget = require("$:/core/modules/widgets/widget.js").widget;
 
 var STATE_PREFIX = "$:/state/tearoff/";
 
+function getMaxZ(wiki) {
+	var maxZ = 0;
+	wiki.each(function(tiddler,t) {
+		if(t.indexOf(STATE_PREFIX) === 0) {
+			maxZ = Math.max(maxZ,Number(tiddler.fields.z) || 0);
+		}
+	});
+	return maxZ;
+}
+
 var OpenInPaneWidget = function(parseTreeNode,options) {
 	this.initialise(parseTreeNode,options);
 };
@@ -58,22 +68,20 @@ OpenInPaneWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var stateTitle = STATE_PREFIX + title;
 	if(this.wiki.tiddlerExists(stateTitle)) {
 		// Already open: bring it to the front
-		var maxZ = 0;
-		this.wiki.each(function(tiddler,t) {
-			if(t.indexOf(STATE_PREFIX) === 0) {
-				maxZ = Math.max(maxZ,Number(tiddler.fields.z) || 0);
-			}
-		});
-		this.wiki.setText(stateTitle,"z",undefined,String(maxZ + 1));
+		this.wiki.setText(stateTitle,"z",undefined,String(getMaxZ(this.wiki) + 1));
 	} else {
+		// New pane: stagger its position so it doesn't land exactly on top of
+		// an existing pane, and put it above everything else that's open
+		var paneCount = this.wiki.filterTiddlers("[prefix[" + STATE_PREFIX + "]]").length,
+			stagger = (paneCount % 6) * 30;
 		this.wiki.addTiddler(new $tw.Tiddler(this.wiki.getCreationFields(),{
 			title: stateTitle,
 			list: [title],
-			x: "80",
-			y: "80",
+			x: String(80 + stagger),
+			y: String(80 + stagger),
 			w: "480",
 			h: "360",
-			z: "10"
+			z: String(getMaxZ(this.wiki) + 1)
 		}));
 	}
 	return true; // Action was invoked

@@ -29,6 +29,9 @@ TearoffFrameWidget.prototype = new Widget();
 Render this widget into the DOM
 */
 TearoffFrameWidget.prototype.render = function(parent,nextSibling) {
+	this.addEventListeners([
+		{type: "tm-scroll", handler: "handleScrollEvent"}
+	]);
 	this.parentDomNode = parent;
 	this.computeAttributes();
 	this.execute();
@@ -77,6 +80,16 @@ Selectively refreshes the widget if needed. Returns true if the widget or any of
 */
 TearoffFrameWidget.prototype.refresh = function(changedTiddlers) {
 	var changedAttributes = this.computeAttributes();
+	// Closing the last tiddler in a pane empties its story list without
+	// removing the pane's own state tiddler -- treat an empty list the same
+	// as closing the pane itself. This has to run before the caption check
+	// below: the caption is derived from the list's first entry, so it also
+	// changes (to empty) on exactly this transition, and would otherwise
+	// take the refreshSelf() branch and never reach this check at all.
+	if(changedTiddlers[this.stateTitle] && this.wiki.getTiddlerList(this.stateTitle).length === 0) {
+		this.wiki.deleteTiddler(this.stateTitle);
+		return true;
+	}
 	if(changedAttributes.state || changedAttributes.caption) {
 		this.refreshSelf();
 		return true;
@@ -99,6 +112,21 @@ TearoffFrameWidget.prototype.applyGeometry = function() {
 	this.frameDomNode.style.width = (fields.w || "480") + "px";
 	this.frameDomNode.style.height = (fields.h || "360") + "px";
 	this.frameDomNode.style.zIndex = fields.z || "10";
+};
+
+/*
+Intercept tm-scroll events raised by content inside this pane (e.g. the
+storyview scrolling a newly-navigated-to tiddler into view) before they
+reach the core's page-level scroller, which only ever scrolls the browser
+window and would do nothing useful for a fixed-position pane with its own
+internal scroll region. Scrolling the target natively here keeps the
+pane's own body in sync and stops the event going any further.
+*/
+TearoffFrameWidget.prototype.handleScrollEvent = function(event) {
+	if(event.target && event.target.scrollIntoView) {
+		event.target.scrollIntoView({block: "nearest", inline: "nearest", behavior: "smooth"});
+	}
+	return false; // Don't let this reach the page-level scroller too
 };
 
 TearoffFrameWidget.prototype.bringToFront = function() {
