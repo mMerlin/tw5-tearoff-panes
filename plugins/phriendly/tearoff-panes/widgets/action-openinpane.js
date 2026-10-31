@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/aboratech/tearoff-panes/widgets/action-openinpane.js
+title: $:/plugins/phriendly/tearoff-panes/widgets/action-openinpane.js
 type: application/javascript
 module-type: widget
 

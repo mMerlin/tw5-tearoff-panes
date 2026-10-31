@@ -13,10 +13,10 @@ import. It contains nothing but the plugin itself -- no TiddlyWiki core, no
 demo content.</p>
 <p>Open your existing TiddlyWiki document, use Tools &rarr; import (or drag
 this file into the browser window), select
-<code>$:/plugins/aboratech/tearoff-panes</code> from the list of tiddlers
+<code>$:/plugins/phriendly/tearoff-panes</code> from the list of tiddlers
 found, import it, then save and reload your wiki.</p>
 <script class="tiddlywiki-tiddler-store" type="application/json">
-`<$macrocall $name="jsontiddlers" filter="[[$:/plugins/aboratech/tearoff-panes]]" $output="text/raw"/>`
+`<$macrocall $name="jsontiddlers" filter="[[$:/plugins/phriendly/tearoff-panes]]" $output="text/raw"/>`
 </script>
 </body>
 </html>`

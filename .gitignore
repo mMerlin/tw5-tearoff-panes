@@ -1,1 +1,21 @@
+# Build output
 editions/*/output/
+
+# Dependencies
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+
+# Lab-platform-specific folders. These hold operational material for the
+# hosting environment this project happens to be developed in (credentials,
+# panel scripts, local session scratch) -- never content meant to ship with
+# this repo. They're already kept out of commits locally via
+# .git/info/exclude, but that file is local-only and doesn't travel with a
+# clone or push, so they're listed here too as a real guardrail against an
+# accidental `git add -A` picking one up.
+context/
+import/
+export/
+.claude/

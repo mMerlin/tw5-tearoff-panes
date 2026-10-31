@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/aboratech/tearoff-panes/widgets/tearoffframe.js
+title: $:/plugins/phriendly/tearoff-panes/widgets/tearoffframe.js
 type: application/javascript
 module-type: widget
 

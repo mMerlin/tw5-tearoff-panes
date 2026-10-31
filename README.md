@@ -59,7 +59,7 @@ README section names, not an assumed "latest".
 3. Drag the downloaded file into the browser window. (The sidebar's
    **Tools → import** button reaches the same place, but makes you browse
    to and select the file first -- dragging gets you there in one step.)
-4. TiddlyWiki shows the one tiddler it found, `$:/plugins/aboratech/tearoff-panes`,
+4. TiddlyWiki shows the one tiddler it found, `$:/plugins/phriendly/tearoff-panes`,
    already selected -- there's nothing else in this file to deselect. Confirm
    the import. If a copy is already installed, this overwrites it
    immediately and silently, so double-check the filename *before* this
@@ -78,7 +78,7 @@ plugin's behavior -- not to use it as-is.
 `vendor/TiddlyWiki5` is a git submodule, kept purely as a local reference
 and the source of the `tiddlywiki` CLI used for building/testing --
 it is not vendored into the plugin itself. The plugin source lives entirely
-under `plugins/aboratech/tearoff-panes/`.
+under `plugins/phriendly/tearoff-panes/`.
 
 ```sh
 git clone --recurse-submodules <this-repo-url>
@@ -105,11 +105,34 @@ TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins" \
 # -> editions/tearoff-dev/output/index.html
 ```
 
-**After changing anything under `plugins/aboratech/tearoff-panes/`**, bump
-`version` in `plugins/aboratech/tearoff-panes/plugin.info`, regenerate the
+**After changing anything under `plugins/phriendly/tearoff-panes/`**, bump
+`version` in `plugins/phriendly/tearoff-panes/plugin.info`, regenerate the
 distributable file, and commit both:
 
 ```sh
 ./scripts/build-library.sh
 # -> writes dist/tearoff-panes-<version>.html, read from plugin.info
 ```
+
+## Tests
+
+Regression tests live in [`test/`](test/) -- one Playwright spec per bug
+that's been found and fixed, plus the core open/drag/close flow and the
+actual import-into-an-existing-wiki path. Quick start:
+
+```sh
+cd test
+npm install
+npm test
+```
+
+See [`test/README.md`](test/README.md) for what each spec covers, what's
+required to run them, and how to add a new one.
+
+## Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md) for what's changed in each version.
+
+## License
+
+MIT -- see [`LICENSE`](LICENSE).

@@ -1,7 +1,7 @@
 {
     "description": "Dev edition for exercising the tearoff-panes plugin",
     "plugins": [
-        "aboratech/tearoff-panes"
+        "phriendly/tearoff-panes"
     ],
     "themes": [
         "tiddlywiki/vanilla",

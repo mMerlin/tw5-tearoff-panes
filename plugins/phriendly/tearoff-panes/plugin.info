@@ -1,7 +1,7 @@
 {
-    "title": "$:/plugins/aboratech/tearoff-panes",
+    "title": "$:/plugins/phriendly/tearoff-panes",
     "description": "Open tiddlers in draggable, resizable panes within the current window",
-    "author": "abora.phil",
+    "author": "H. Phil Duby",
     "version": "0.0.4",
     "core-version": ">=5.3.0",
     "list": "readme"

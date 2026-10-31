@@ -1,4 +1,4 @@
-title: $:/plugins/aboratech/tearoff-panes/ui/ViewToolbar/OpenInPane
+title: $:/plugins/phriendly/tearoff-panes/ui/ViewToolbar/OpenInPane
 tags: $:/tags/ViewToolbar
 caption: {{$:/core/images/open-window}} popout
 description: Pop out this tiddler
