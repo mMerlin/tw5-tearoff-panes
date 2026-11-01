@@ -30,8 +30,8 @@ current browser window or document.
 Early scaffold. The open/drag/resize/close flow, and the full
 import-into-an-existing-wiki path below, have both been verified end to end
 against a real build. Broader testing (multiple simultaneous panes, the
-create-new-tiddler-inside-a-pane flow) is still outstanding. There is no
-tagged release yet.
+create-new-tiddler-inside-a-pane flow) is still outstanding. **v0.0.4** is
+the project's first tagged release.
 
 ## Adding this to an existing TiddlyWiki document
 
@@ -52,9 +52,11 @@ hold more than one file -- e.g. an MDI variant alongside a
 separate-OS-windows variant -- so always grab the filename the current
 README section names, not an assumed "latest".
 
-1. Download `dist/tearoff-panes-0.0.4.html` (e.g. via the link above, or
-   `raw.githubusercontent.com/.../dist/tearoff-panes-0.0.4.html` once this
-   repo has a home).
+1. Download `dist/tearoff-panes-0.0.4.html` -- e.g. via the link above, or
+   directly from
+   [`raw.githubusercontent.com/mMerlin/tw5-tearoff-panes/v0.0.4/dist/tearoff-panes-0.0.4.html`](https://raw.githubusercontent.com/mMerlin/tw5-tearoff-panes/v0.0.4/dist/tearoff-panes-0.0.4.html).
+   That link is pinned to the `v0.0.4` tag rather than a moving branch, so
+   it will always be exactly this version, even after later commits land.
 2. Open your existing TiddlyWiki document in a browser.
 3. Drag the downloaded file into the browser window. (The sidebar's
    **Tools → import** button reaches the same place, but makes you browse
@@ -81,8 +83,8 @@ it is not vendored into the plugin itself. The plugin source lives entirely
 under `plugins/phriendly/tearoff-panes/`.
 
 ```sh
-git clone --recurse-submodules <this-repo-url>
-cd tiddlywiki-enhancements-C_045
+git clone --recurse-submodules https://github.com/mMerlin/tw5-tearoff-panes.git
+cd tw5-tearoff-panes
 # or, if already cloned without --recurse-submodules:
 git submodule update --init
 ```
@@ -132,6 +134,12 @@ required to run them, and how to add a new one.
 ## Changelog
 
 See [`CHANGELOG.md`](CHANGELOG.md) for what's changed in each version.
+
+## Issues
+
+Bug reports and feature requests are tracked on
+[GitHub Issues](https://github.com/mMerlin/tw5-tearoff-panes/issues). See
+[`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request.
 
 ## License
 
