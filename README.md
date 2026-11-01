@@ -27,11 +27,12 @@ current browser window or document.
 
 ## Status
 
-Early scaffold. The open/drag/resize/close flow, and the full
-import-into-an-existing-wiki path below, have both been verified end to end
-against a real build. Broader testing (multiple simultaneous panes, the
-create-new-tiddler-inside-a-pane flow) is still outstanding. **v0.0.4** is
-the project's first tagged release.
+Functional, early-stage plugin. **v0.0.4** is the project's first tagged
+release. The open/drag/resize/close flow, multiple simultaneous panes, and
+the full import-into-an-existing-wiki path are all covered by the
+[regression suite](test/). Not yet tested: saving a brand-new tiddler
+created via a link clicked inside a pane -- only its position in that
+pane's story list is verified today, not the draft-and-save path.
 
 ## Adding this to an existing TiddlyWiki document
 
