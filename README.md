@@ -36,7 +36,12 @@ pane's story list is verified today, not the draft-and-save path.
 
 ## Adding this to an existing TiddlyWiki document
 
-You don't need this repo, Node.js, or git for this -- just one file:
+Quickest path if you already have a TiddlyWiki open in another tab: visit
+**[mmerlin.github.io/tw5-tearoff-panes](https://mmerlin.github.io/tw5-tearoff-panes/)**
+and drag the button there onto your open wiki -- TiddlyWiki's own
+drag-and-drop import handles the rest, no download needed.
+
+Otherwise, you don't need this repo, Node.js, or git for this -- just one file:
 **[`dist/tearoff-panes-0.0.4.html`](dist/tearoff-panes-0.0.4.html)**. It's a
 small (~14&nbsp;KB) file containing *only* this plugin -- no TiddlyWiki
 core, no demo content -- kept up to date in this repo so there's nothing to

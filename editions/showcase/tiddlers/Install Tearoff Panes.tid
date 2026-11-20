@@ -1,0 +1,19 @@
+title: Install Tearoff Panes
+
+\rules except wikilink
+
+! Tearoff Panes
+
+Open any tiddler in a draggable, resizable pane that floats over the main story river, without leaving the current browser window or document.
+
+Drag the button below onto an ''already-open'' TiddlyWiki document in another tab or window to install it there -- no download needed.
+
+<$button dragTiddler="$:/plugins/phriendly/tearoff-panes" class="tc-btn-big-green">
+{{$:/core/images/download-button}} Drag me into your own TiddlyWiki
+</$button>
+
+Can't drag between tabs? Download
+[[tearoff-panes-0.0.4.html|https://raw.githubusercontent.com/mMerlin/tw5-tearoff-panes/v0.0.4/dist/tearoff-panes-0.0.4.html]]
+instead, then drag //that file// into your wiki, or use Tools &rarr; import.
+
+See the [[GitHub repository|https://github.com/mMerlin/tw5-tearoff-panes]] for documentation, source, and version history.

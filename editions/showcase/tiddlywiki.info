@@ -1,0 +1,15 @@
+{
+    "description": "GitHub Pages showcase/install page for tearoff-panes",
+    "plugins": [
+        "phriendly/tearoff-panes"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "build": {
+        "index": [
+            "--render", "$:/core/save/all", "index.html", "text/plain"
+        ]
+    }
+}
