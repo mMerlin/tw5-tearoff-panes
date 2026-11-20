@@ -35,7 +35,7 @@ jobs:
           TIDDLYWIKI_PLUGIN_PATH: ${{ github.workspace }}/plugins
         run: node vendor/TiddlyWiki5/tiddlywiki.js editions/showcase --build index
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: editions/showcase/output
 
@@ -47,4 +47,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
