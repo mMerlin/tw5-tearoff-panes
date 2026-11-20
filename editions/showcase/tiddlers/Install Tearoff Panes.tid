@@ -12,8 +12,23 @@ Drag the button below onto an ''already-open'' TiddlyWiki document in another ta
 {{$:/core/images/download-button}} Drag me into your own TiddlyWiki
 </$button>
 
-Can't drag between tabs? Download
+!! Making the drag work
+
+A drag like this only carries the plugin data between tabs of the ''same''
+browser -- it can't cross from this page into a different browser (for
+example, this page open in Chrome and your wiki open in Firefox). Dragging
+straight from one tab to another also isn't always obvious, since the two
+tabs usually aren't visible at the same time. Get both tabs on screen at
+once first, in whichever way your browser supports:
+
+* Drag this tab out of its tab bar to pop it into its own window, then drag the button across into your wiki's window.
+* Or right-click this tab and look for an option like //Move tab to new window//.
+* Or, if your browser offers a split-view / side-by-side tabs feature (recent Edge, Firefox, and others do), use that to show both tabs at once without needing separate windows.
+
+Can't get that working, or your wiki is open in a different browser?
+Download
 [[tearoff-panes-0.0.4.html|https://raw.githubusercontent.com/mMerlin/tw5-tearoff-panes/v0.0.4/dist/tearoff-panes-0.0.4.html]]
 instead, then drag //that file// into your wiki, or use Tools &rarr; import.
+This always works, regardless of browser.
 
 See the [[GitHub repository|https://github.com/mMerlin/tw5-tearoff-panes]] for documentation, source, and version history.
